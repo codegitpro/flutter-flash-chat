@@ -23,17 +23,31 @@ class _WelcomeScreenState extends State<WelcomeScreen>
     super.initState();
 
     controller = AnimationController(
-      duration: Duration(seconds: 1),
+      duration: Duration(seconds: 3),
       vsync: this,
     );
 
-    animation = CurvedAnimation(parent: controller, curve: Curves.decelerate);
+    animation = CurvedAnimation(parent: controller, curve: Curves.easeIn);
 
     controller.forward();
+
+    animation.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        controller.reverse(from: 1);
+      } else if (status == AnimationStatus.dismissed) {
+        controller.forward();
+      }
+    });
 
     controller.addListener(() {
       print(animation.value);
     });
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
   }
 
   @override
