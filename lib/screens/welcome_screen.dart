@@ -45,7 +45,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
     // });
 
     controller.addListener(() {
-      print(animation.value);
+      // print(animation.value);
     });
   }
 
