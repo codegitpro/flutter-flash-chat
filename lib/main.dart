@@ -21,7 +21,15 @@ class FlashChat extends StatelessWidget {
           body1: TextStyle(color: Colors.black54),
         ),
       ),
-      home: WelcomeScreen(),
+      home: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: WelcomeScreen(),
+          ),
+        ),
+      ),
       initialRoute: WelcomeScreen.id,
       routes: {
         WelcomeScreen.id: (context) => WelcomeScreen(),
